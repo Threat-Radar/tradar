@@ -6,33 +6,41 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      # Report every leg. A single failing combination should not hide the
+      # state of the others.
+      fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest]
-        python-version: ['3.8', '3.9', '3.10', '3.11']
-    
+        python-version: ['3.11', '3.12']
+
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
-    
+        cache: pip
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -e .
-        pip install pytest pytest-cov
-    
+        pip install -e ".[dev]"
+
     - name: Run tests
       run: |
         pytest tests/ -v --cov=threat_radar --cov-report=term-missing
-    
+
     - name: Test CLI
       run: |
+        tradar --version
         tradar --help
-        threat-radar --help  # Test backward compatibility
+        threat-radar --help  # backward-compatible alias, see #126
