@@ -1,14 +1,24 @@
 # Threat Radar - Core Dependencies
 # Install with: pip install -r requirements.txt
+#
+# These mirror the [project.dependencies] table in pyproject.toml.
+# `pip install -e .` is the preferred install; this file exists for
+# environments that cannot use the project metadata directly.
 
-# Core dependencies
-PyGithub==2.1.1
-python-dotenv==1.0.0
+# Core
+python-dotenv>=1.0.1
 typer>=0.9.0
+rich>=13.0.0
 docker>=7.0.0
+requests>=2.31.0
+pydantic>=2.0.0
 anchore-syft>=1.18.0
+
+# Graph analysis (scipy is required by networkx pagerank and the
+# kamada_kawai layout used in threat_radar/visualization)
 networkx>=3.0
-scipy==1.16.3
+numpy>=1.24.0
+scipy>=1.11.0
 
 # AI features
 openai>=1.0.0
@@ -17,4 +27,3 @@ tenacity>=8.2.0
 # Visualization
 plotly>=5.18.0
 kaleido>=0.2.1  # For static image export (PNG, SVG, PDF)
-
