@@ -82,7 +82,6 @@ Homepage = "https://github.com/Threat-Radar/tradar"
 Documentation = "https://github.com/Threat-Radar/tradar/blob/main/README.md"
 Repository = "https://github.com/Threat-Radar/tradar.git"
 Issues = "https://github.com/Threat-Radar/tradar/issues"
-Changelog = "https://github.com/Threat-Radar/tradar/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["."]

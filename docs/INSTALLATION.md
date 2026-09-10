@@ -544,8 +544,6 @@ ollama list
 ### Getting More Help
 
 - **Documentation:** See `README.md` and `CLAUDE.md`
-- **Examples:** Check `examples/` directory
-- **Troubleshooting:** See `examples/TROUBLESHOOTING.md`
 - **Issues:** https://github.com/Threat-Radar/tradar/issues
 
 ---
@@ -621,10 +619,8 @@ docker image prune -a
 ## Additional Resources
 
 - **Quick Start:** See `README.md`
-- **API Documentation:** See `docs/API.md`
-- **Examples:** See `examples/START_HERE.md`
-- **Development:** See `CLAUDE.md`
-- **Contributing:** See `CONTRIBUTING.md` (if exists)
+- **Command and API reference:** See `CLAUDE.md`
+- **Publishing:** See `docs/PUBLISHING.md`
 
 ---
 

@@ -178,20 +178,23 @@ tradar docker python-sbom python:3.11 -o sbom.json
 ## 📚 Documentation
 
 ### Getting Started
-- **[Installation Guide](#installation)** - Complete setup instructions
-- **[Examples Guide](examples/START_HERE.md)** - Step-by-step tutorials
+- **[Installation Guide](docs/INSTALLATION.md)** - Complete setup instructions for macOS, Linux and Windows
 - **[CLI Reference](CLAUDE.md)** - Complete command reference
-- **[Troubleshooting](examples/TROUBLESHOOTING.md)** - Common issues and solutions
 
 ### Features
 - **[CVE Scanning Guide](CLAUDE.md#cve-commands-reference-powered-by-grype)** - Vulnerability detection
 - **[AI Analysis Guide](CLAUDE.md#ai-commands-reference)** - AI-powered features
-- **[Reporting Guide](docs/REPORTING_GUIDE.md)** - Report generation and formats
-- **[SBOM Generation](docs/SBOM_SYFT.md)** - SBOM capabilities
+- **[Reporting Guide](CLAUDE.md#comprehensive-reporting-commands)** - Report generation and formats
+- **[SBOM Generation](CLAUDE.md#sbom-commands-reference)** - SBOM capabilities
+
+### Docker
+- **[Local Scanning](docs/docker/DOCKER_LOCAL_SCANNING.md)** - Scanning from the container image
+- **[Interactive Use](docs/docker/DOCKER_INTERACTIVE.md)** - Running the image interactively
+- **[Testing](docs/docker/TESTING.md)** - Docker image test procedure
 
 ### Development
 - **[Developer Guide](CLAUDE.md)** - Architecture and development
-- **[Code Review](docs/development/CODE_REVIEW_REPORT.md)** - Code quality analysis
+- **[Publishing](docs/PUBLISHING.md)** - Release and PyPI workflow
 
 ---
 
@@ -570,9 +573,7 @@ MIT License - See LICENSE file for details
 ## 🤝 Support
 
 - **Issues:** [GitHub Issues](https://github.com/Threat-Radar/tradar/issues)
-- **Documentation:** [docs/](docs/)
-- **Examples:** [examples/](examples/)
-- **Troubleshooting:** [examples/TROUBLESHOOTING.md](examples/TROUBLESHOOTING.md)
+- **Documentation:** [docs/](docs/) and [CLAUDE.md](CLAUDE.md)
 
 ---
 

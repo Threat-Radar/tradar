@@ -268,7 +268,6 @@ tradar -f csv sbom components sbom.json -o packages.csv
 tradar -q -f json --no-color cve scan-image myapp:latest > results.json
 ```
 
-**For complete CLI features documentation, see [docs/CLI_FEATURES.md](docs/CLI_FEATURES.md)**
 
 ## Architecture
 
@@ -3714,7 +3713,6 @@ mkdir -p storage/cve_storage storage/ai_analysis
 mkdir -p sbom_storage/docker sbom_storage/local
 ```
 
-For more troubleshooting help, see `examples/TROUBLESHOOTING.md`
 
 ---
 
@@ -4279,16 +4277,18 @@ pip install kaleido --force-reinstall
 ## Documentation Resources
 
 ### User Documentation
-- **[INSTALLATION.md](docs/INSTALLATION.md)** - Complete installation guide for all platforms (macOS, Linux, Windows)
-- **[docs/CLI_FEATURES.md](docs/CLI_FEATURES.md)** - Comprehensive CLI features guide (global options, configuration, filtering, output formats)
-- **[CHANGELOG.md](CHANGELOG.md)** - Version history and release notes
+- **[docs/INSTALLATION.md](docs/INSTALLATION.md)** - Complete installation guide for all platforms (macOS, Linux, Windows)
+- **[docs/docker/](docs/docker/)** - Running and testing the Docker image
 
 ### Developer Documentation
-- **[docs/API.md](docs/API.md)** - Complete Python API reference for programmatic usage
-- **[PUBLISHING.md](docs/PUBLISHING.md)** - PyPI publishing and release workflow guide
+- **[docs/PUBLISHING.md](docs/PUBLISHING.md)** - PyPI publishing and release workflow guide
+- **[docs/requirements/](docs/requirements/)** - CI/CD requirements and implementation notes
 - **[threat-radar.config.example.json](threat-radar.config.example.json)** - Example configuration file template
 
 ### Additional Resources
 - **[README.md](README.md)** - Project overview and quick start
-- **[examples/TROUBLESHOOTING.md](examples/TROUBLESHOOTING.md)** - Common issues and solutions
 - **[.env.example](.env.example)** - Environment variables template
+
+This file is the command reference; there is no separate CLI_FEATURES.md or
+API.md. The `examples/` tree was moved out of this repository in #102, so
+references to `examples/...` paths no longer resolve here.
