@@ -78,11 +78,11 @@ tradar = "threat_radar.cli.__main__:main"
 threat-radar = "threat_radar.cli.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/Threat-Radar/tr"
-Documentation = "https://github.com/Threat-Radar/tr/blob/main/README.md"
-Repository = "https://github.com/Threat-Radar/tr.git"
-Issues = "https://github.com/Threat-Radar/tr/issues"
-Changelog = "https://github.com/Threat-Radar/tr/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/Threat-Radar/tradar"
+Documentation = "https://github.com/Threat-Radar/tradar/blob/main/README.md"
+Repository = "https://github.com/Threat-Radar/tradar.git"
+Issues = "https://github.com/Threat-Radar/tradar/issues"
+Changelog = "https://github.com/Threat-Radar/tradar/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["."]

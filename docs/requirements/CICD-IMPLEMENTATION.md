@@ -5,7 +5,7 @@
 ### 1. Test Workflow (`.github/workflows/test.yml`)
 - **Triggers:** All branches, all PRs
 - **Runs on:** macOS + Ubuntu
-- **Python versions:** 3.8, 3.9, 3.10, 3.11
+- **Python versions:** 3.11, 3.12
 - **Actions:** Install deps, run pytest, test CLI
 
 ### 2. Release Workflow (`.github/workflows/release.yml`)

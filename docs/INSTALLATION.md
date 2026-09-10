@@ -21,11 +21,11 @@ Complete installation instructions for all platforms and use cases.
 
 ### Required Software
 
-#### 1. Python 3.8 or Higher
+#### 1. Python 3.11 or Higher
 
 **Check if Python is installed:**
 ```bash
-python3 --version  # Should show 3.8 or higher
+python3 --version  # Should show 3.11 or higher
 ```
 
 **Install Python:**
@@ -241,8 +241,8 @@ pip install threat-radar[dev]
 
 ```bash
 # Clone the repository
-git clone https://github.com/Threat-Radar/tr.git
-cd threat-radar
+git clone https://github.com/Threat-Radar/tradar.git
+cd tradar
 
 # Create virtual environment (recommended)
 python3 -m venv .venv
@@ -259,10 +259,10 @@ pip install -e ".[dev,ai]"
 
 ```bash
 # Install directly from GitHub main branch
-pip install git+https://github.com/Threat-Radar/tr.git
+pip install git+https://github.com/Threat-Radar/tradar.git
 
 # Or specific branch/tag
-pip install git+https://github.com/Threat-Radar/tr.git@v0.1.0
+pip install git+https://github.com/Threat-Radar/tradar.git@v0.1.0
 ```
 
 ### Method 4: Using requirements.txt
@@ -546,7 +546,7 @@ ollama list
 - **Documentation:** See `README.md` and `CLAUDE.md`
 - **Examples:** Check `examples/` directory
 - **Troubleshooting:** See `examples/TROUBLESHOOTING.md`
-- **Issues:** https://github.com/Threat-Radar/tr/issues
+- **Issues:** https://github.com/Threat-Radar/tradar/issues
 
 ---
 
