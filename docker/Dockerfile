@@ -104,7 +104,7 @@ COPY --chmod=755 docker/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD threat-radar --help || exit 1
+    CMD tradar --help || exit 1
 
 # Expose ports (if running as service in future)
 # EXPOSE 8000
@@ -113,4 +113,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
 # Default command
-CMD ["threat-radar", "--help"]
+CMD ["tradar", "--help"]

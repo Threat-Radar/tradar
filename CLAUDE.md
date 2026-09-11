@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Threat Radar (tr) is a threat assessment and analysis platform for security vulnerability management. It provides Docker container analysis, SBOM generation, and package extraction for security analysis.
+Threat Radar (`tradar`) is a threat assessment and analysis platform for security vulnerability management. It provides Docker container analysis, SBOM generation, and package extraction for security analysis.
 
 ## Quick Reference
 
@@ -80,8 +80,8 @@ cp .env.example .env
 
 ### Running the CLI
 The package provides two CLI entry points:
-- `threat-radar` - Main command
-- `tradar` - Shortened alias
+- `tradar` - Main command
+- `threat-radar` - Backward-compatible alias (see #126: plain `tr` collided with the Unix `tr` utility)
 
 ```bash
 # Available commands
@@ -131,7 +131,7 @@ flake8 threat_radar/
 All Threat Radar commands support global options that control behavior across the entire CLI:
 
 ```bash
-tr [OPTIONS] COMMAND [ARGS]
+tradar [OPTIONS] COMMAND [ARGS]
 
 Global Options:
   -c, --config PATH        Path to configuration file (JSON format)
@@ -268,7 +268,6 @@ tradar -f csv sbom components sbom.json -o packages.csv
 tradar -q -f json --no-color cve scan-image myapp:latest > results.json
 ```
 
-**For complete CLI features documentation, see [docs/CLI_FEATURES.md](docs/CLI_FEATURES.md)**
 
 ## Architecture
 
@@ -1628,7 +1627,7 @@ def run_scan(image):
     output_file = f"scan_{image.replace(':', '_')}_{timestamp}.json"
 
     cmd = [
-        "threat-radar", "cve", "scan-image", image,
+        "tradar", "cve", "scan-image", image,
         "--auto-save", "-o", output_file
     ]
 
@@ -1647,7 +1646,7 @@ def generate_report(scan_files, report_type="detailed"):
         format_type = "html"
 
     cmd = [
-        "threat-radar", "report", "generate",
+        "tradar", "report", "generate",
         *scan_files,
         "-o", output_file,
         "-f", format_type,
@@ -2410,7 +2409,7 @@ def export_to_slack(report_file):
 if __name__ == "__main__":
     # Generate report
     subprocess.run([
-        "threat-radar", "report", "generate",
+        "tradar", "report", "generate",
         "scan.json", "-o", "report.json", "-f", "json"
     ])
 
@@ -3574,11 +3573,14 @@ The project uses organized storage directories (git-ignored):
 ### Dependencies
 
 **Core Python dependencies:**
-- `python-dotenv==1.0.0` - Environment variable management
+- `python-dotenv>=1.0.1` - Environment variable management
 - `typer>=0.9.0` - CLI framework (argument parsing and commands)
 - `docker>=7.0.0` - Docker SDK for Python
 - `openai>=1.0.0` - OpenAI API client (for AI features)
 - `tenacity>=8.2.0` - Retry logic for API calls
+- `pydantic>=2.0.0` - Schema models for environment configuration
+- `networkx>=3.0`, `numpy>=1.24.0`, `scipy>=1.11.0` - Graph analytics (scipy is required by pagerank and the kamada_kawai layout)
+- `plotly>=5.18.0`, `kaleido>=0.2.1` - Visualization and static image export
 
 **Optional Python dependencies:**
 - `anchore-syft>=1.18.0` - SBOM generation Python bindings (not required, CLI tool is primary)
@@ -3711,7 +3713,6 @@ mkdir -p storage/cve_storage storage/ai_analysis
 mkdir -p sbom_storage/docker sbom_storage/local
 ```
 
-For more troubleshooting help, see `examples/TROUBLESHOOTING.md`
 
 ---
 
@@ -4276,16 +4277,18 @@ pip install kaleido --force-reinstall
 ## Documentation Resources
 
 ### User Documentation
-- **[INSTALLATION.md](docs/INSTALLATION.md)** - Complete installation guide for all platforms (macOS, Linux, Windows)
-- **[docs/CLI_FEATURES.md](docs/CLI_FEATURES.md)** - Comprehensive CLI features guide (global options, configuration, filtering, output formats)
-- **[CHANGELOG.md](CHANGELOG.md)** - Version history and release notes
+- **[docs/INSTALLATION.md](docs/INSTALLATION.md)** - Complete installation guide for all platforms (macOS, Linux, Windows)
+- **[docs/docker/](docs/docker/)** - Running and testing the Docker image
 
 ### Developer Documentation
-- **[docs/API.md](docs/API.md)** - Complete Python API reference for programmatic usage
-- **[PUBLISHING.md](docs/PUBLISHING.md)** - PyPI publishing and release workflow guide
+- **[docs/PUBLISHING.md](docs/PUBLISHING.md)** - PyPI publishing and release workflow guide
+- **[docs/requirements/](docs/requirements/)** - CI/CD requirements and implementation notes
 - **[threat-radar.config.example.json](threat-radar.config.example.json)** - Example configuration file template
 
 ### Additional Resources
 - **[README.md](README.md)** - Project overview and quick start
-- **[examples/TROUBLESHOOTING.md](examples/TROUBLESHOOTING.md)** - Common issues and solutions
 - **[.env.example](.env.example)** - Environment variables template
+
+This file is the command reference; there is no separate CLI_FEATURES.md or
+API.md. The `examples/` tree was moved out of this repository in #102, so
+references to `examples/...` paths no longer resolve here.

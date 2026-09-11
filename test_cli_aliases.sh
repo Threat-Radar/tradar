@@ -35,14 +35,17 @@ echo ""
 echo "Test 2: Comparing help output..."
 echo "-------------------------------------------"
 
-# Test 2: Verify both commands show same help
-tradar --help > /tmp/tradar_help.txt
-threat-radar --help > /tmp/threat-radar_help.txt
+# Test 2: Verify both commands show the same help.
+# The "Usage:" line is expected to differ - each entry point reports its own
+# name - so it is filtered out before comparing.
+tradar --help | grep -v "Usage:" > /tmp/tradar_help.txt
+threat-radar --help | grep -v "Usage:" > /tmp/threat-radar_help.txt
 
 if diff /tmp/tradar_help.txt /tmp/threat-radar_help.txt &> /dev/null; then
-    echo "✓ Both commands show identical help output"
+    echo "✓ Both commands show identical help output (ignoring the Usage line)"
 else
     echo "✗ Help output differs between commands"
+    diff /tmp/tradar_help.txt /tmp/threat-radar_help.txt
     exit 1
 fi
 

@@ -1,10 +1,9 @@
-# Threat Radar (tr-nvd)
+# Threat Radar (`tradar`)
 
 A comprehensive threat assessment and vulnerability analysis platform for Docker containers and software dependencies.
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Tests Passing](https://img.shields.io/badge/tests-passing-brightgreen.svg)](#-testing)
-[![CVE Precision](https://img.shields.io/badge/CVE%20precision-100%25-brightgreen.svg)](#-key-features)
+[![Tests](https://github.com/Threat-Radar/tradar/actions/workflows/test.yml/badge.svg)](https://github.com/Threat-Radar/tradar/actions/workflows/test.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
 ---
 
@@ -25,7 +24,7 @@ Threat Radar provides enterprise-grade security analysis with:
 ### Prerequisites
 
 **Required:**
-- Python 3.8 or higher
+- Python 3.11 or higher
 - Docker (for container analysis)
 - [Grype](https://github.com/anchore/grype) (for CVE scanning)
 - [Syft](https://github.com/anchore/syft) (for SBOM generation)
@@ -55,8 +54,8 @@ syft version
 
 ```bash
 # Clone repository
-git clone https://github.com/Threat-Radar/tr.git
-cd tr-nvd
+git clone https://github.com/Threat-Radar/tradar.git
+cd tradar
 
 # Option A: Using pip with requirements.txt
 pip install -r requirements.txt
@@ -179,20 +178,23 @@ tradar docker python-sbom python:3.11 -o sbom.json
 ## 📚 Documentation
 
 ### Getting Started
-- **[Installation Guide](#installation)** - Complete setup instructions
-- **[Examples Guide](examples/START_HERE.md)** - Step-by-step tutorials
+- **[Installation Guide](docs/INSTALLATION.md)** - Complete setup instructions for macOS, Linux and Windows
 - **[CLI Reference](CLAUDE.md)** - Complete command reference
-- **[Troubleshooting](examples/TROUBLESHOOTING.md)** - Common issues and solutions
 
 ### Features
 - **[CVE Scanning Guide](CLAUDE.md#cve-commands-reference-powered-by-grype)** - Vulnerability detection
 - **[AI Analysis Guide](CLAUDE.md#ai-commands-reference)** - AI-powered features
-- **[Reporting Guide](docs/REPORTING_GUIDE.md)** - Report generation and formats
-- **[SBOM Generation](docs/SBOM_SYFT.md)** - SBOM capabilities
+- **[Reporting Guide](CLAUDE.md#comprehensive-reporting-commands)** - Report generation and formats
+- **[SBOM Generation](CLAUDE.md#sbom-commands-reference)** - SBOM capabilities
+
+### Docker
+- **[Local Scanning](docs/docker/DOCKER_LOCAL_SCANNING.md)** - Scanning from the container image
+- **[Interactive Use](docs/docker/DOCKER_INTERACTIVE.md)** - Running the image interactively
+- **[Testing](docs/docker/TESTING.md)** - Docker image test procedure
 
 ### Development
 - **[Developer Guide](CLAUDE.md)** - Architecture and development
-- **[Code Review](docs/development/CODE_REVIEW_REPORT.md)** - Code quality analysis
+- **[Publishing](docs/PUBLISHING.md)** - Release and PyPI workflow
 
 ---
 
@@ -369,7 +371,7 @@ AI_MODEL=llama2
 ## 📁 Project Structure
 
 ```
-tr-nvd/
+tradar/
 ├── threat_radar/              # Main package
 │   ├── core/                  # Core functionality
 │   │   ├── container_analyzer.py
@@ -570,10 +572,8 @@ MIT License - See LICENSE file for details
 
 ## 🤝 Support
 
-- **Issues:** [GitHub Issues](https://github.com/Threat-Radar/tr/issues)
-- **Documentation:** [docs/](docs/)
-- **Examples:** [examples/](examples/)
-- **Troubleshooting:** [examples/TROUBLESHOOTING.md](examples/TROUBLESHOOTING.md)
+- **Issues:** [GitHub Issues](https://github.com/Threat-Radar/tradar/issues)
+- **Documentation:** [docs/](docs/) and [CLAUDE.md](CLAUDE.md)
 
 ---
 

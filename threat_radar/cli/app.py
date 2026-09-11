@@ -21,7 +21,7 @@ from ..utils.cli_context import CLIContext, set_cli_context
 
 
 def get_version() -> str:
-    """Get the current version of threat-radar."""
+    """Get the installed version of the threat-radar distribution."""
     try:
         return version("threat-radar")
     except PackageNotFoundError:
@@ -31,7 +31,9 @@ def get_version() -> str:
 def version_callback(value: bool) -> None:
     """Print version and exit."""
     if value:
-        typer.echo(f"threat-radar {get_version()}")
+        # "tradar" is the command; "threat-radar" is only the distribution
+        # name on PyPI and the backward-compatible alias.
+        typer.echo(f"tradar {get_version()}")
         raise typer.Exit()
 
 app = typer.Typer(
